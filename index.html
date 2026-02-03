@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Yes or No 😄</title>
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: #1a1a2e; 
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .container {
+      text-align: center;
+      color: white;
+      z-index: 10;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(255, 105, 180, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    h1 {
+      margin-bottom: 30px;
+      font-size: 32px;
+      text-shadow: 2px 2px 10px #ff69b4;
+    }
+
+    button {
+      font-size: 20px;
+      font-weight: bold;
+      padding: 15px 40px;
+      margin: 10px;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    #yes {
+      background: linear-gradient(45deg, #22c55e, #16a34a);
+      color: white;
+    }
+
+    #yes:hover { transform: scale(1.1); }
+
+    #no {
+      background: linear-gradient(45deg, #ef4444, #dc2626);
+      color: white;
+      position: absolute;
+    }
+
+    .floating-item {
+      position: absolute;
+      user-select: none;
+      pointer-events: none;
+      animation: floatAndFade 7s linear infinite;
+      opacity: 0;
+    }
+
+    @keyframes floatAndFade {
+      0% { transform: translateY(110vh) scale(0.5) rotate(0deg); opacity: 0; }
+      20% { opacity: 1; }
+      100% { transform: translateY(-20vh) scale(2) rotate(360deg); opacity: 0; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>Hey! Muskan Will you be My Valentine? 😌</h1>
+    <button id="yes">YES</button>
+    <button id="no">NO</button>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById("no");
+    const yesBtn = document.getElementById("yes");
+    const items = ["❤️", "💕", "💖", "🌟", "🥰", "🎈", "🌹", "✨"];
+
+    function createFloatingItem() {
+      const item = document.createElement("div");
+      item.classList.add("floating-item");
+      item.innerHTML = items[Math.floor(Math.random() * items.length)];
+      item.style.fontSize = Math.random() * 30 + 30 + "px"; 
+      item.style.left = Math.random() * 100 + "vw";
+      item.style.animationDuration = Math.random() * 3 + 4 + "s";
+      document.body.appendChild(item);
+      setTimeout(() => { item.remove(); }, 7000);
+    }
+
+    setInterval(createFloatingItem, 150);
+
+    noBtn.addEventListener("mouseover", () => {
+      const x = Math.random() * (window.innerWidth - 150);
+      const y = Math.random() * (window.innerHeight - 80);
+      noBtn.style.left = x + "px";
+      noBtn.style.top = y + "px";
+    });
+
+    yesBtn.addEventListener("click", () => {
+      // Background and Content Reset
+      document.body.innerHTML = `
+        <div style="
+          height:100vh; width:100vw;
+          display:flex; flex-direction:column;
+          align-items:center; justify-content:center;
+          background: #000;
+          color:white; text-align:center;
+        ">
+          <!-- Naya Working Gif Link -->
+          <img
+            src="https://media1.giphy.com"
+            alt="Happy Dance"
+            style="width:280px; border-radius:20px; box-shadow: 0 0 20px #ff69b4; margin-bottom:20px;"
+            onerror="this.src='https://media.tenor.com'"
+          >
+
+          <div style="font-size:36px; font-weight:bold; line-height:1.4;">
+            Thanks 😄<br>
+            Congratulations 🎉<br>
+            <span style="color:#ffd700; text-shadow: 0 0 10px #ffd700;">
+              Your choice is outstanding 💎
+            </span>
+          </div>
+          
+          <p style="margin-top:20px; font-size:18px; color:#ff69b4;">See you soon! ❤️</p>
+        </div>
+      `;
+    });
+  </script>
+
+</body>
+</html>
