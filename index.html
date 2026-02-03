@@ -8,7 +8,7 @@
     body {
       margin: 0;
       height: 100vh;
-      background: #1a1a2e; 
+      background: #1a1a2e; /* Deep midnight blue background */
       display: flex;
       align-items: center;
       justify-content: center;
@@ -59,6 +59,7 @@
       position: absolute;
     }
 
+    /* Floating Emojis and Balloons Styling (from previous request) */
     .floating-item {
       position: absolute;
       user-select: none;
@@ -109,7 +110,7 @@
     });
 
     yesBtn.addEventListener("click", () => {
-      // Background and Content Reset
+      // Content Reset
       document.body.innerHTML = `
         <div style="
           height:100vh; width:100vw;
@@ -117,13 +118,13 @@
           align-items:center; justify-content:center;
           background: #000;
           color:white; text-align:center;
+          padding: 20px;
         ">
           <!-- Naya Working Gif Link -->
           <img
-            src="https://media1.giphy.com"
+            src="https://media.tenor.com"
             alt="Happy Dance"
             style="width:280px; border-radius:20px; box-shadow: 0 0 20px #ff69b4; margin-bottom:20px;"
-            onerror="this.src='https://media.tenor.com'"
           >
 
           <div style="font-size:36px; font-weight:bold; line-height:1.4;">
